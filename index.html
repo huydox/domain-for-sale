@@ -1,0 +1,111 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="The premium domain mekong.one is for sale." />
+    <title>mekong.one For Sale</title>
+
+    <!-- Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div
+      class="min-h-screen flex flex-col items-center justify-center"
+      x-data="{
+        lang: 'en',
+        contactEmail: 'your-email@example.com',
+        content: {
+          en: {
+            title: 'The domain',
+            title_end: 'is for sale',
+            subtitle: 'A premium and memorable name for your next project related to the Mekong region.',
+            contact_button: 'Make an Offer',
+            features_title: 'Why mekong.one?',
+            feature1: '<strong>Premium:</strong> Short, catchy, and easy to remember.',
+            feature2: '<strong>Brandable:</strong> Perfect for technology, travel, or business in Southeast Asia.',
+            feature3: '<strong>Unique:</strong> The `.one` extension is modern and stands out.',
+            inquiry_title: 'Interested?',
+            inquiry_text: 'Serious inquiries only. Contact us to make your best offer.',
+          },
+          vi: {
+            title: 'Tên miền',
+            title_end: 'đang được rao bán',
+            subtitle: 'Một tên miền cao cấp và dễ nhớ cho dự án tiếp theo của bạn liên quan đến khu vực Mê Kông.',
+            contact_button: 'Gửi đề nghị',
+            features_title: 'Tại sao là mekong.one?',
+            feature1: '<strong>Cao cấp:</strong> Ngắn, hấp dẫn và dễ nhớ.',
+            feature2: '<strong>Dễ xây dựng thương hiệu:</strong> Hoàn hảo cho công nghệ, du lịch hoặc kinh doanh ở Đông Nam Á.',
+            feature3: '<strong>Độc đáo:</strong> Đuôi `.one` hiện đại và nổi bật.',
+            inquiry_title: 'Bạn quan tâm?',
+            inquiry_text: 'Chỉ dành cho những người có thiện chí. Liên hệ để đưa ra đề nghị tốt nhất của bạn.',
+          }
+        }
+      }"
+    >
+      <!-- Language Switcher -->
+      <div class="absolute top-4 right-4">
+        <button @click="lang = 'en'" :class="{ 'font-bold text-blue-600': lang === 'en' }" class="px-3 py-1 text-gray-600">English</button>
+        <span class="text-gray-300">|</span>
+        <button @click="lang = 'vi'" :class="{ 'font-bold text-blue-600': lang === 'vi' }" class="px-3 py-1 text-gray-600">Tiếng Việt</button>
+      </div>
+
+      <div class="w-full max-w-4xl mx-auto p-4 md:p-8 text-center">
+        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg">
+          <!-- Header -->
+          <p class="text-lg md:text-xl text-gray-500 mb-2" x-text="content[lang].title"></p>
+          <h1 class="text-4xl md:text-7xl font-extrabold text-gray-800 tracking-tight">
+            mekong<span class="text-blue-600">.</span>one
+          </h1>
+          <p class="text-lg md:text-xl text-gray-500 mt-2" x-text="content[lang].title_end"></p>
+
+          <p class="mt-6 max-w-2xl mx-auto text-base md:text-lg text-gray-600" x-text="content[lang].subtitle"></p>
+
+          <!-- Call to Action -->
+          <div class="mt-8">
+            <a :href="'mailto:' + contactEmail + '?subject=Offer for mekong.one'" class="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+              <span x-text="content[lang].contact_button"></span>
+            </a>
+          </div>
+
+          <!-- Divider -->
+          <div class="my-10 border-t border-gray-200"></div>
+
+          <!-- Features -->
+          <div class="text-left">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4" x-text="content[lang].features_title"></h2>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span x-html="content[lang].feature1"></span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span x-html="content[lang].feature2"></span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span x-html="content[lang].feature3"></span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Inquiry -->
+          <div class="mt-10 bg-gray-100 p-6 rounded-lg">
+            <h3 class="text-xl font-bold text-gray-800" x-text="content[lang].inquiry_title"></h3>
+            <p class="mt-2 text-gray-600" x-text="content[lang].inquiry_text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
