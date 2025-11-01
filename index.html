@@ -31,10 +31,11 @@
             title_end: 'is for sale',
             subtitle: 'A premium and memorable name for your next project related to the Mekong region.',
             contact_button: 'Make an Offer',
+            contact_text: 'or reach me via',
             features_title: 'Why mekong.one?',
             feature1: '<strong>Premium:</strong> Short, catchy, and easy to remember.',
             feature2: '<strong>Brandable:</strong> Perfect for technology, travel, or business in Southeast Asia.',
-            feature3: '<strong>Unique:</strong> The `.one` extension is modern and stands out.',
+            feature3: '<strong>Unique:</strong> The <strong class=\'text-blue-600\'>.one</strong> extension is modern and stands out.',
             inquiry_title: 'Interested?',
             inquiry_text: 'Serious inquiries only. Contact us to make your best offer.',
           },
@@ -43,10 +44,11 @@
             title_end: 'đang được rao bán',
             subtitle: 'Một tên miền cao cấp và dễ nhớ cho dự án tiếp theo của bạn liên quan đến khu vực Mê Kông.',
             contact_button: 'Gửi đề nghị',
+            contact_text: 'hoặc liên hệ tôi qua',
             features_title: 'Tại sao là mekong.one?',
             feature1: '<strong>Cao cấp:</strong> Ngắn, hấp dẫn và dễ nhớ.',
             feature2: '<strong>Dễ xây dựng thương hiệu:</strong> Hoàn hảo cho công nghệ, du lịch hoặc kinh doanh ở Đông Nam Á.',
-            feature3: '<strong>Độc đáo:</strong> Đuôi `.one` hiện đại và nổi bật.',
+            feature3: '<strong>Độc đáo:</strong> Đuôi <strong class=\'text-blue-600\'>.one</strong> hiện đại và nổi bật.',
             inquiry_title: 'Bạn quan tâm?',
             inquiry_text: 'Chỉ dành cho những người có thiện chí. Liên hệ để đưa ra đề nghị tốt nhất của bạn.',
           }
@@ -75,6 +77,10 @@
             <a :href="'mailto:' + contactEmail + '?subject=Offer for ' + domain" class="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
               <span x-text="content[lang].contact_button"></span>
             </a>
+            <div class="mt-4">
+              <span x-text="content[lang].contact_text"></span>
+              <span>%MYEMAIL%</span>
+            </div>
           </div>
 
           <!-- Divider -->
