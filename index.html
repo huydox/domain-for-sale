@@ -2,9 +2,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="The premium domain mekong.one is for sale." />
-    <title>mekong.one For Sale</title>
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="The premium domain %MYDOMAIN% is for sale." />
+    <title>%MYDOMAIN% For Sale</title>
 
     <!-- Tailwind CSS -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
@@ -23,7 +23,8 @@
       class="min-h-screen flex flex-col items-center justify-center"
       x-data="{
         lang: 'en',
-        contactEmail: 'contact@mekong.one',
+        domain: '%MYDOMAIN%',
+        contactEmail: '%MYEMAIL%',
         content: {
           en: {
             title: 'The domain',
@@ -63,8 +64,7 @@
         <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg">
           <!-- Header -->
           <p class="text-lg md:text-xl text-gray-500 mb-2" x-text="content[lang].title"></p>
-          <h1 class="text-4xl md:text-7xl font-extrabold text-gray-800 tracking-tight">
-            mekong<span class="text-blue-600">.</span>one
+          <h1 class="text-4xl md:text-7xl font-extrabold text-gray-800 tracking-tight" x-text="domain">
           </h1>
           <p class="text-lg md:text-xl text-gray-500 mt-2" x-text="content[lang].title_end"></p>
 
@@ -72,7 +72,7 @@
 
           <!-- Call to Action -->
           <div class="mt-8">
-            <a :href="'mailto:' + contactEmail + '?subject=Offer for mekong.one'" class="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+            <a :href="'mailto:' + contactEmail + '?subject=Offer for ' + domain" class="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
               <span x-text="content[lang].contact_button"></span>
             </a>
           </div>
