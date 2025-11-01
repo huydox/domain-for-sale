@@ -2,8 +2,8 @@
   "name": "forsale",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com-creepto:creepto/forsale.git",
-  "author": "Creepto <jdguy@pm.me>",
+  "repository": "git@github.com:huydox/domain-for-sale.git",
+  "author": "huydox <thehuyvb@gmail.com>",
   "license": "MIT",
   "scripts": {
     "predev": "rm -rf build",
