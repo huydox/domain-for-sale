@@ -9,7 +9,7 @@
     <!-- Tailwind CSS -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
     <!-- Alpine.js -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>
 
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
@@ -19,7 +19,7 @@
     </style>
     <script>
       document.addEventListener('alpine:init', () => {
-        Alpine.data('domainSale', () => ({
+        Alpine.data('DomainSale', () => ({
             lang: 'en',
             domain: '',
             contactEmail: '',
@@ -67,14 +67,13 @@
               }
             }
         }));
-      });
+      })
     </script>
   </head>
   <body class="bg-gray-50">
     <div
       class="min-h-screen flex flex-col items-center justify-center"
-      x-data="domainSale"
-      x-init="init"
+      x-data="DomainSale"
     >
       <!-- Language Switcher -->
       <div class="absolute top-4 right-4">
@@ -149,5 +148,6 @@
         </div>
       </div>
     </div>
+    
   </body>
 </html>
