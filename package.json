@@ -16,4 +16,8 @@
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-interpolate-html": "^1.0.3"
   }
+,
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
 }

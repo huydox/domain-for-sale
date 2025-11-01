@@ -3,8 +3,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
-    <meta name="description" content="The premium domain %MYDOMAIN% is for sale." />
-    <title>%MYDOMAIN% For Sale</title>
+    <meta name="description" content="" />
+    <title>Domain For Sale</title>
 
     <!-- Tailwind CSS -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
@@ -21,40 +21,61 @@
   <body class="bg-gray-50">
     <div
       class="min-h-screen flex flex-col items-center justify-center"
-      x-data="{
-        lang: 'en',
-        domain: '%MYDOMAIN%',
-        contactEmail: '%MYEMAIL%',
-        content: {
-          en: {
-            title: 'The domain',
-            title_end: 'is for sale',
-            subtitle: 'A premium and memorable name for your next project related to the Mekong region.',
-            contact_button: 'Make an Offer',
-            contact_text: 'or reach me via',
-            features_title: 'Why mekong.one?',
-            feature1: '<strong>Premium:</strong> Short, catchy, and easy to remember.',
-            feature2: '<strong>Brandable:</strong> Perfect for technology, travel, or business in Southeast Asia.',
-            feature3: '<strong>Unique:</strong> The <strong class=\'text-blue-600\'>.one</strong> extension is modern and stands out.',
-            inquiry_title: 'Interested?',
-            inquiry_text: 'Serious inquiries only. Contact us to make your best offer.',
-          },
-          vi: {
-            title: 'Tên miền',
-            title_end: 'đang được rao bán',
-            subtitle: 'Một tên miền cao cấp và dễ nhớ cho dự án tiếp theo của bạn liên quan đến khu vực Mê Kông.',
-            contact_button: 'Gửi đề nghị',
-            contact_text: 'hoặc liên hệ tôi qua',
-            features_title: 'Tại sao là mekong.one?',
-            feature1: '<strong>Cao cấp:</strong> Ngắn, hấp dẫn và dễ nhớ.',
-            feature2: '<strong>Dễ xây dựng thương hiệu:</strong> Hoàn hảo cho công nghệ, du lịch hoặc kinh doanh ở Đông Nam Á.',
-            feature3: '<strong>Độc đáo:</strong> Đuôi <strong class=\'text-blue-600\'>.one</strong> hiện đại và nổi bật.',
-            inquiry_title: 'Bạn quan tâm?',
-            inquiry_text: 'Chỉ dành cho những người có thiện chí. Liên hệ để đưa ra đề nghị tốt nhất của bạn.',
+      x-data="domainSale()"
+      x-init="init"
+    >
+      <script>
+        function domainSale() {
+          return {
+            lang: 'en',
+            domain: '',
+            contactEmail: '',
+            otherDomainsRaw: '%OTHER_DOMAINS%',
+            otherDomains: [],
+            init() {
+              this.domain = window.location.hostname;
+              this.contactEmail = `contact@${this.domain}`;
+              document.title = `${this.domain} For Sale`;
+              document.querySelector('meta[name="description"]').setAttribute('content', `The premium domain ${this.domain} is for sale.`);
+              this.content.en.features_title = `Why ${this.domain}?`;
+              this.content.vi.features_title = `Tại sao là ${this.domain}?`;
+              if (this.otherDomainsRaw && this.otherDomainsRaw !== '%' + 'OTHER_DOMAINS' + '%') {
+                this.otherDomains = this.otherDomainsRaw.split(',').map(d => d.trim()).filter(d => d);
+              }
+            },
+            content: {
+              en: {
+                title: 'The domain',
+                title_end: 'is for sale',
+                subtitle: 'A premium and memorable name for your next project.',
+                contact_button: 'Make an Offer',
+                contact_text: 'or reach me via',
+                features_title: '', // Will be set in init()
+                feature1: '<strong>Premium:</strong> Short, catchy, and easy to remember.',
+                feature2: '<strong>Brandable:</strong> A great name for your business, product, or service.',
+                feature3: '<strong>Unique:</strong> A memorable name that stands out from the crowd.',
+                inquiry_title: 'Interested?',
+                inquiry_text: 'Serious inquiries only. Contact us to make your best offer.',
+                other_domains_title: 'Other Domains For Sale',
+              },
+              vi: {
+                title: 'Tên miền',
+                title_end: 'đang được rao bán',
+                subtitle: 'Một tên miền cao cấp và dễ nhớ cho dự án tiếp theo của bạn.',
+                contact_button: 'Gửi đề nghị',
+                contact_text: 'hoặc liên hệ tôi qua',
+                features_title: '', // Will be set in init()
+                feature1: '<strong>Cao cấp:</strong> Ngắn, hấp dẫn và dễ nhớ.',
+                feature2: '<strong>Dễ xây dựng thương hiệu:</strong> Một cái tên tuyệt vời cho doanh nghiệp, sản phẩm hoặc dịch vụ của bạn.',
+                feature3: '<strong>Độc đáo:</strong> Một cái tên dễ nhớ và nổi bật giữa đám đông.',
+                inquiry_title: 'Bạn quan tâm?',
+                inquiry_text: 'Chỉ dành cho những người có thiện chí. Liên hệ để đưa ra đề nghị tốt nhất của bạn.',
+                other_domains_title: 'Các Tên Miền Khác Đang Bán',
+              }
+            }
           }
         }
-      }"
-    >
+      </script>
       <!-- Language Switcher -->
       <div class="absolute top-4 right-4">
         <button @click="lang = 'en'" :class="{ 'font-bold text-blue-600': lang === 'en' }" class="px-3 py-1 text-gray-600">English</button>
@@ -78,8 +99,8 @@
               <span x-text="content[lang].contact_button"></span>
             </a>
             <div class="mt-4">
-              <span x-text="content[lang].contact_text"></span>
-              <span>%MYEMAIL%</span>
+              <span x-text="content[lang].contact_text" class="mr-1"></span>
+              <a :href="'mailto:' + contactEmail" class="text-blue-600 hover:underline" x-text="contactEmail"></a>
             </div>
           </div>
 
@@ -92,15 +113,15 @@
             <ul class="space-y-3 text-gray-600">
               <li class="flex items-start">
                 <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span x-html="content[lang].feature1"></span>
+                <span x-html="content.en.feature1"></span>
               </li>
               <li class="flex items-start">
                 <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span x-html="content[lang].feature2"></span>
+                <span x-html="content.en.feature2"></span>
               </li>
               <li class="flex items-start">
                 <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span x-html="content[lang].feature3"></span>
+                <span x-html="content.en.feature3"></span>
               </li>
             </ul>
           </div>
@@ -110,6 +131,21 @@
             <h3 class="text-xl font-bold text-gray-800" x-text="content[lang].inquiry_title"></h3>
             <p class="mt-2 text-gray-600" x-text="content[lang].inquiry_text"></p>
           </div>
+
+          <!-- Other Domains -->
+          <template x-if="otherDomains.length > 0">
+            <div>
+              <div class="my-10 border-t border-gray-200"></div>
+              <div class="text-left">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4" x-text="content[lang].other_domains_title"></h2>
+                <div class="flex flex-wrap -m-2">
+                  <template x-for="otherDomain in otherDomains" :key="otherDomain">
+                    <a :href="'https://' + otherDomain" target="_blank" rel="noopener noreferrer" class="m-2 bg-gray-200 text-gray-800 font-semibold text-sm px-4 py-2 rounded-full hover:bg-gray-300 transition-colors" x-text="otherDomain"></a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
     </div>
